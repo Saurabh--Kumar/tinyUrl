@@ -32,6 +32,6 @@ public class TinyUrlController {
 
     @PostMapping(value = "shrinkUrl")
     public ShrinkUrlResponse shrinkUrl(@RequestBody FullUrlRequest fullUrlRequest) {
-
+        return null;
     }
 }

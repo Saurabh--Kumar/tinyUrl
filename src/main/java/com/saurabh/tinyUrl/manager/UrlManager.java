@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 public class UrlManager {
 
     public String getFullUrl(String tinyUrl) {
-
+        return null;
     }
 }
