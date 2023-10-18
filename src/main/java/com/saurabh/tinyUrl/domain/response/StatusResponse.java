@@ -1,4 +1,4 @@
-package com.saurabh.tinyUrl.response;
+package com.saurabh.tinyUrl.domain.response;
 
 import com.saurabh.tinyUrl.enums.Status;
 import lombok.Data;
