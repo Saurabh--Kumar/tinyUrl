@@ -1,4 +1,4 @@
-package com.saurabh.tinyUrl.response;
+package com.saurabh.tinyUrl.domain.response;
 
 import lombok.Data;
 

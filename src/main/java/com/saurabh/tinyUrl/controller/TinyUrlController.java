@@ -1,8 +1,10 @@
 package com.saurabh.tinyUrl.controller;
 
+import com.saurabh.tinyUrl.domain.exception.TinyUrlException;
+import com.saurabh.tinyUrl.domain.response.ShrinkUrlResponse;
 import com.saurabh.tinyUrl.manager.UrlManager;
-import com.saurabh.tinyUrl.request.FullUrlRequest;
-import com.saurabh.tinyUrl.response.ShrinkUrlResponse;
+import com.saurabh.tinyUrl.domain.response.ShrinkUrlResponse;
+import com.saurabh.tinyUrl.domain.request.FullUrlRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +26,12 @@ public class TinyUrlController {
 
     @GetMapping(value = "{tinyUrl}")
     public void getFullUrl(@PathVariable String tinyUrl, HttpServletResponse response) throws IOException {
-        String fullUrl = urlManager.getFullUrl(tinyUrl);
+        String fullUrl = null;
+        try {
+            fullUrl = urlManager.getFullUrl(tinyUrl);
+        } catch (TinyUrlException e) {
+            e.printStackTrace();
+        }
 
         response.sendRedirect(fullUrl);
         response.setStatus(303);
